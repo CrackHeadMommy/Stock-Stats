@@ -74,6 +74,7 @@ def scraped_data():
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")#records time
     prices = [get_price(t) for t in tickers]
     print(f"[{timestamp}] " + ", ".join(f"{t}: {p}" for t, p in zip(tickers, prices)))#displays in the terminal
+    ws.append([timestamp] + prices)
     wb.save("stock_prices.xlsx")
 
 while True:
